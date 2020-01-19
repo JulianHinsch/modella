@@ -1,0 +1,5 @@
+@import '../../styles/variables.scss';
+
+.stock_list {
+    @include collapsible_list;
+}

@@ -1,0 +1,70 @@
+$white: #ffffff;
+$black: #000000;
+$blue: #3399ff;
+$grey-lighter: #efefef;
+$grey-light: #dddddd;
+$grey-medium: #bbbbbb;
+$grey-dark: #999999;
+$grey-darker: #333333;
+
+$font-heading: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;;
+$font-body: sans-serif;
+
+@mixin collapsible_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &.minified {
+        flex: 0;
+        height: 40px;
+        > *:not(.header) {
+            display: none;
+        }
+    }
+
+    > .header {
+        padding: 10px;
+        font-family: $font-heading;
+        color: $black;
+        background-color: $grey-lighter;
+        border: 1px solid $grey-medium;
+        border-left: none;
+        border-right: none;
+        margin-top: -1px;
+        cursor: pointer;
+    }
+
+    > .zero_state {
+        margin: 20px 10px 10px;
+        color: $grey-dark;
+        font-family: $font-body;
+        font-size: 14px;
+    }
+
+    > .new {
+        margin: 10px auto 10px 10px;
+        padding: 10px 20px;
+        background-color: $blue;
+        color: $white;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-family: $font-body;
+    }
+
+    > ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        overflow: scroll;
+    }
+
+    > ul > li {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+}
