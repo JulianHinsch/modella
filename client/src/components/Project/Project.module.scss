@@ -5,8 +5,13 @@
     width: 100%;
     height: 100vh;
 
+    > .simulation_container {
+        position: fixed;
+        height: 100vh;
+    }
+
     > .sidebar {
-        min-width: 300px;
+        min-width: 200px;
         position: fixed;
         display: flex;
         flex-direction: column;

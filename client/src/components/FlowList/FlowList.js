@@ -24,17 +24,23 @@ export default class FlowList extends Component {
         return (
             <div className={classNames(styles.flow_list, { [styles.minified]: minified })}>
                 <div className={styles.header} onClick={this.onClickHeader}>
-                    Flows
+                    Flows {minified ? (
+                        <img src={require('../../assets/chevron-right.svg')}/>
+                    ) : (
+                        <img src={require('../../assets/chevron-down.svg')}/>
+                    )}
                 </div>
                 {flows.length === 0 && (
                     <p className={styles.zero_state}>No Flows</p>
                 )}
-                {/* {stocks.map(stock => (
-                    <Stock/>
-                ))} */}
                 <button className={styles.new} onClick={this.onClickNew}>
                     New Flow
                 </button>
+                <ul>
+                    {flows.map(flow => (
+                        <li>{flow.fromTitle} -> {flow.toTitle}</li>
+                    ))}
+                </ul>
             </div>
         );
     }

@@ -15,9 +15,45 @@ export default class Project extends Component {
     }
 
     state = {
-      stocks: [],
-      flows: [],
-      simulations: [],
+      stocks: [
+        {
+          id: 1,
+          simulationId: 1,
+          title: 'Here',
+          unit: 'Gallons',
+          initialValue: 100,
+          value: 100,
+        },
+        {
+          id: 1,
+          simulationId: 1,
+          title: 'There',
+          unit: 'Gallons',
+          initialValue: 100,
+          value: 100,
+        }
+      ],
+      flows: [
+        {
+          id: 1,
+          simulationId: 1,
+          toId: 1,
+          toTitle: 'There',
+          fromId: 2,
+          fromTitle: 'Here',
+          rate: 10,
+          unit: 'Gallons',
+          timeUnit: 'second',
+        }
+      ],
+      simulations: [
+        {
+          time: 1,
+          timeUnit: 'minute',
+          id: 1,
+          title: 'My Simulation',
+        }
+      ],
       currentSimulationId: null,
       isResizing: false,
       sidebarWidth: 300,
@@ -61,12 +97,18 @@ export default class Project extends Component {
         const currentSimulation = simulations.filter((i) => i.id = currentSimulationId);
         return (
             <div className={styles.project}>
-              {/* <Simulation
-                simulation={currentSimulation}
-                stocks={stocks}
-                flows={flows}
-              /> */}
-              <div className={styles.sidebar} style={{ width: sidebarWidth }}>
+              <div
+                className={styles.simulation_container}
+                style={{ width: window.innerWidth - sidebarWidth}}>
+                <Simulation
+                  simulation={currentSimulation}
+                  stocks={stocks}
+                  flows={flows}
+                />
+              </div>
+              <div
+                className={styles.sidebar}
+                style={{ width: sidebarWidth }}>
                 <div
                   className={styles.resizable}
                   onMouseDown={this.startResize}/>

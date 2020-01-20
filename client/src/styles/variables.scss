@@ -7,8 +7,9 @@ $grey-medium: #bbbbbb;
 $grey-dark: #999999;
 $grey-darker: #333333;
 
-$font-heading: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;;
+$font-heading: Georgia;
 $font-body: sans-serif;
+$font-monospace: Courier;
 
 @mixin collapsible_list {
     display: flex;
@@ -33,6 +34,10 @@ $font-body: sans-serif;
         border-right: none;
         margin-top: -1px;
         cursor: pointer;
+
+        > img {
+            vertical-align: bottom;
+        }
     }
 
     > .zero_state {
@@ -56,15 +61,22 @@ $font-body: sans-serif;
     }
 
     > ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
         flex: 1;
+        align-self: flex-start;
+        margin: 0 10px 10px;
+        padding-left: 20px;
         overflow: scroll;
     }
 
     > ul > li {
-        padding: 5px 10px;
         cursor: pointer;
+        font-family: $font-monospace;
+        margin: 10px 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }

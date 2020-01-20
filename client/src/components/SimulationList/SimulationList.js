@@ -24,7 +24,11 @@ export default class SimulationList extends Component {
         return (
             <div className={classNames(styles.simulation_list, { [styles.minified]: minified })}>
                 <div className={styles.header} onClick={this.onClickHeader}>
-                    Simulations
+                    Simulations {minified ? (
+                        <img src={require('../../assets/chevron-right.svg')}/>
+                    ) : (
+                        <img src={require('../../assets/chevron-down.svg')}/>
+                    )}
                 </div>
                 {simulations.length === 0 && (
                     <p className={styles.zero_state}>No Simulations</p>
@@ -32,6 +36,11 @@ export default class SimulationList extends Component {
                 <button className={styles.new} onClick={this.onClickNew}>
                     New Simulation
                 </button>
+                <ul>
+                    {simulations.map((simulation, index) => (
+                        <li>{simulation.title}</li>
+                    ))}
+                </ul>
             </div>
         );
     }

@@ -18,13 +18,21 @@ export default class StockList extends Component {
         this.setState(prevState => ({ minified: !prevState.minified}));
     }
 
+    onClickStock = () => {
+
+    }
+
     render() {
         const { stocks } = this.props;
         const { minified } = this.state;
         return (
             <div className={classNames(styles.stock_list, { [styles.minified]: minified })}>
                 <div className={styles.header} onClick={this.onClickHeader}>
-                    Stocks
+                    Stocks {minified ? (
+                        <img src={require('../../assets/chevron-right.svg')}/>
+                    ) : (
+                        <img src={require('../../assets/chevron-down.svg')}/>
+                    )}
                 </div>
                 {stocks.length === 0 && (
                     <p className={styles.zero_state}>No Stocks</p>
@@ -33,11 +41,10 @@ export default class StockList extends Component {
                     New Stock
                 </button>
                 <ul>
-                    {/* {stocks.map(stock => (
-                        <Stock/>
-                    ))} */}
+                    {stocks.map((stock, index) => (
+                        <li key={index}>{stock.title}</li>
+                    ))}
                 </ul>
-                
             </div>
         );
     }

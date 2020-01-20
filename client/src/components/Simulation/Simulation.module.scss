@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.simulation {
+
+    > .controls {
+        width: 100%;
+        background-color: $grey-lighter;
+        border-top: 1px solid $grey-medium;
+        position: absolute;
+        bottom: 0;
+        padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+
+        > button {
+            border: 1px solid $grey-medium;
+            border-radius: 0;
+            outline: none;
+            cursor: pointer;
+            height: 100%;
+            padding: 10px;
+            font-size: 14px;
+            background-color: $white;
+        }
+    }
+}
