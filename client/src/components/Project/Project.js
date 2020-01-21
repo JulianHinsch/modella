@@ -73,7 +73,7 @@ export default class Project extends Component {
     handleMouseMove = (e) => {
       const { isResizing } = this.state;
       if (isResizing) {
-        this.setState({ sidebarWidth: window.innerWidth - e.clientX })
+        this.setState({ sidebarWidth: Math.min(window.innerWidth - e.clientX, window.innerWidth-100) })
       }
     }
 
@@ -86,7 +86,6 @@ export default class Project extends Component {
     }
 
     render() {
-        const { } = this.props;
         const {
           stocks,
           flows,

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './MyComponent.module.scss';
 
-const MyComponent = () => {
+const MyComponent = (props) => {
     return (
         <div className={styles.my_component}>
 

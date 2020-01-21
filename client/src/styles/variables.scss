@@ -80,3 +80,76 @@ $font-monospace: Courier;
         }
     }
 }
+
+@mixin form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    width: 400px;
+
+    > .title {
+        color: $black;
+        font-family: $font-heading;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    > fieldset {
+        border: 1px solid $grey-medium;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 10px 0;
+
+        > legend {
+            border: 1px solid $grey-medium;
+            border-radius: 5px;
+            padding: 5px 20px;
+        }
+    }
+
+    & label {
+        color: $grey-darker;
+        font-family: $font-body;
+        margin-bottom: 5px;
+        font-size: 12px;
+    }
+
+    & select {
+        display: block;
+        padding: 10px 5px;
+        width: 200px;
+        height: 30px;
+        margin-bottom: 10px;
+        background-color: $grey-lighter;
+        border: 1px solid $grey-medium;
+    }
+
+    & input {
+        padding: 10px 5px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        height: 30px;
+        display: block;
+        margin-bottom: 10px;
+        background-color: $grey-lighter;
+        border: 1px solid $grey-medium;
+    }
+
+    > button {
+        display: inline-block;
+        padding: 10px 20px;
+        outline: none;
+        border: none;
+        background-color: $grey-lighter;
+        border-radius: 5px;
+        margin: 10px 10px 10px 0;
+        cursor: pointer;
+    }
+
+    > button[type=submit] {
+        color: white;
+        background-color: $blue;
+    }
+}

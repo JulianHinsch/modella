@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
+import styles from './App.module.scss';
 
 import Project from '../Project/Project';
-
-import styles from '../../styles/index.scss';
+import ModalProvider, { ModalContext } from '../Modal/ModalProvider';
 
 export default class App extends Component {
-
-    static propTypes = {
-
-    }
-
-    state = {
-
-    }
-
     render() {
-        const { } = this.props;
         return (
-            <Project/>
+            <ModalProvider value={ModalContext}>
+                <div className={styles.app}>
+                    <Project/>
+                </div>
+            </ModalProvider>
         );
     }
 }

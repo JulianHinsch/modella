@@ -12,5 +12,9 @@ export const toMs = (val, unit) => {
             return 24 * 60 * 60 * 1000 * val;
         case 'year':
             return 365 * 24 * 60 * 60 * 1000 * val;
+        default:
+            return val;
     }
 }
+
+export const noop = () => {}
